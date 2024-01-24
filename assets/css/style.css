@@ -691,7 +691,28 @@ small {
   #intro.section {
     background-position-x: 30%;
   }
-  .wrapper {
+
+/* TIMELINE CSS */
+* {
+  box-sizing: border-box;
+  outline: none !important;
+}
+button_tl:focus { outline: none !important; box-shadow: none !important; }
+a_tl:focus {outline: none !important;}
+body_tl { font-family: 'Inter', sans-serif; color: #333333; font-weight: 400; font-size: 20px; line-height: 1.5; margin: 0; padding: 0; overflow-x: hidden; -webkit-text-size-adjust: 100%;}
+img_tl {max-width: 20%;}
+p_tl, li_tl {font-size: 20px; color: #333333; line-height: 1.5;}
+p_tl {margin:0 0 20px 0;}
+ul_tl {margin: 0; padding: 0;}
+h1_tl, h2_tl, h3_tl, h4_tl, h5_tl, h6_tl {
+  margin: 0;
+  margin-top: 0px;
+  line-height: normal;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.1;
+  font-weight: 700;
+}
+.wrapper {
     margin: 0 auto;
     width: 100%;
     max-width: 1642px;
