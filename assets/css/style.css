@@ -697,14 +697,39 @@ small {
   box-sizing: border-box;
   outline: none !important;
 }
-button_tl:focus { outline: none !important; box-shadow: none !important; }
-a_tl:focus {outline: none !important;}
-body_tl { font-family: 'Inter', sans-serif; color: #333333; font-weight: 400; font-size: 20px; line-height: 1.5; margin: 0; padding: 0; overflow-x: hidden; -webkit-text-size-adjust: 100%;}
-img_tl {max-width: 20%;}
-p_tl, li_tl {font-size: 20px; color: #333333; line-height: 1.5;}
-p_tl {margin:0 0 20px 0;}
-ul_tl {margin: 0; padding: 0;}
-h1_tl, h2_tl, h3_tl, h4_tl, h5_tl, h6_tl {
+* {
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+button:focus { outline: none !important; box-shadow: none !important; }
+a:focus {outline: none !important;}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333333;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; }
+
+p, li {
+  font-size: 20px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+p { margin: 0 0 20px 0; }
+
+ul { margin: 0; padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   margin-top: 0px;
   line-height: normal;
@@ -712,6 +737,8 @@ h1_tl, h2_tl, h3_tl, h4_tl, h5_tl, h6_tl {
   line-height: 1.1;
   font-weight: 700;
 }
+
+/* ... Other social icon styles ... */
 .wrapper {
     margin: 0 auto;
     width: 100%;
