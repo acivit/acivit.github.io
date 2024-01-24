@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .timeline {
+      position: relative;
+      width: 80%;
+      margin: 50px auto;
+      overflow: hidden;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #3498db;
+      z-index: -1;
+    }
+
+    .event {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+
+    .event::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background-color: #3498db;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+
+    .event-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .event:hover .event-content {
+      display: block;
+    }
+
+    .slider-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    input[type="range"] {
+      width: 80%;
+      margin: 0 10%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="timeline">
+  <div class="event" style="left: 10%;">
+    <div class="event-content">
+      <strong>Event 1</strong><br>
+      Date: 2020-2022<br>
+      Description: Some information about Event 1.
+    </div>
+  </div>
+  <div class="event" style="left: 30%;">
+    <div class="event-content">
+      <strong>Event 2</strong><br>
+      Date: 2022-2024<br>
+      Description: Some information about Event 2.
+    </div>
+  </div>
+  <div class="event" style="left: 60%;">
+    <div class="event-content">
+      <strong>Event 3</strong><br>
+      Date: 2024-Present<br>
+      Description: Some information about Event 3.
+    </div>
+  </div>
+</div>
+
+<div class="slider-container">
+  <label for="timeline-slider">Timeline Slider:</label>
+  <input type="range" id="timeline-slider" min="0" max="100" step="1" value="0">
+</div>
+
+<script>
+  const slider = document.getElementById('timeline-slider');
+  const events = document.querySelectorAll('.event');
+
+  slider.addEventListener('input', () => {
+    const value = slider.value;
+    events.forEach((event, index) => {
+      const position = (index + 1) * 100 / (events.length + 1);
+      event.style.left = `${position + value}%`;
+    });
+  });
+</script>
+
+</body>
+</html>
