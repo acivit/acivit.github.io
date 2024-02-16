@@ -718,6 +718,17 @@ small {
     border-radius: 4px;
     margin-right: 5px;
   }
+  .citation-container {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+  }
+  .close {
+    float: right;
+    cursor: pointer;
+  }
 
 
 }
