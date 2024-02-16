@@ -691,4 +691,33 @@ small {
   #intro.section {
     background-position-x: 30%;
   }
+
+  .publication {
+    margin-bottom: 20px;
+  }
+  .publication-text {
+    margin-bottom: 10px;
+  }
+  .btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  .btn-cite {
+    background-color: #007bff;
+  }
+  .btn-pdf {
+    background-color: #28a745;
+  }
+  .badge {
+    background-color: #ffc107;
+    color: #212529;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+
+
 }
