@@ -60,7 +60,7 @@ function closeModal() {
 
 
 function toggleCitation(containerId) {
-  if (identifier == "Civit_hri24"){
+  if (containerId == "Civit_hri24"){
     citationText = `@inproceedings{Civit_hri24,
                     title = {Introducing Social Robots to Assess Frailty in Older Adults},
                     booktitle = {Proceedings of the 2024 {ACM}/{IEEE} {International} {Conference} on {Human}-{Robot} {Interaction}},
