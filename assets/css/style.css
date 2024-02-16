@@ -728,6 +728,7 @@ small {
   .close {
     float: right;
     cursor: pointer;
+    display: none;
   }
 
 
