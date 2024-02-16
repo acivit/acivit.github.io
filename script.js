@@ -33,7 +33,7 @@ function openCitation(title) {
   }
   // Open a small window with plain text citation
   window.open('', 'Citation', 'width=400,height=200').document.write('<pre>' + citationText + '</pre>');
-}
+};
 
 
 function openCitation_modal(identifier) {
@@ -62,10 +62,10 @@ function openCitation_modal(identifier) {
   var citationContent = document.getElementById("citationContent");
   citationContent.textContent = citationText;
   modal.style.display = "block";
-}
+};
 
 function closeModal() {
   // Close the modal
   var modal = document.getElementById("citationModal");
   modal.style.display = "none";
-}
+};
