@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Towards Explainable Zero-Shot Learning with Concept Bottlenecks",
+    "authors": "E. Voss, M. Chen, J. Lee",
+    "venue": "NeurIPS 2024",
+    "year": 2024,
+    "type": "conference",
+    "pdfLink": "#",
+    "citation": "@inproceedings{voss2024towards,\n  title={Towards Explainable Zero-Shot Learning with Concept Bottlenecks},\n  author={Voss, Elena and Chen, M. and Lee, J.},\n  booktitle={NeurIPS},\n  year={2024}\n}",
+    "aboutSentence": "We propose concept bottleneck models for zero-shot tasks, improving interpretability by 23% on ImageNet-ZS."
+  },
+  {
+    "id": 2,
+    "title": "Human-Centered Evaluation of Generative Agents",
+    "authors": "E. Voss, S. Park, K. O'Brien",
+    "venue": "CHI 2024",
+    "year": 2024,
+    "type": "conference",
+    "pdfLink": "#",
+    "citation": "@inproceedings{voss2024human,\n  title={Human-Centered Evaluation of Generative Agents},\n  author={Voss, Elena and Park, S. and O'Brien, K.},\n  booktitle={CHI},\n  year={2024}\n}",
+    "aboutSentence": "A mixed-methods study on user trust and mental models of LLM-based agents."
+  },
+  {
+    "id": 3,
+    "title": "Ethical Alignment in Large Language Models: A Survey",
+    "authors": "E. Voss, R. Gupta",
+    "venue": "ACM Computing Surveys",
+    "year": 2023,
+    "type": "journal",
+    "pdfLink": "#",
+    "citation": "@article{voss2023ethical,\n  title={Ethical Alignment in Large Language Models: A Survey},\n  journal={ACM Comput. Surv.},\n  year={2023}\n}",
+    "aboutSentence": "Systematic review of 150+ papers on AI alignment, bias mitigation, and value learning."
+  },
+  {
+    "id": 4,
+    "title": "Interactive Machine Learning for Digital Humanities",
+    "authors": "E. Voss, L. Schmidt",
+    "venue": "MIT Press / Chapter 5",
+    "year": 2023,
+    "type": "book",
+    "pdfLink": "#",
+    "citation": "@incollection{voss2023interactive,\n  title={Interactive Machine Learning for Digital Humanities},\n  booktitle={AI and Cultural Heritage},\n  publisher={MIT Press},\n  year={2023}\n}",
+    "aboutSentence": "Explores co-creative interfaces between historians and neural models for archival analysis."
+  },
+  {
+    "id": 5,
+    "title": "Workshop on Trustworthy AI @ ICML 2023: Proceedings Paper",
+    "authors": "E. Voss, et al.",
+    "venue": "ICML Workshop",
+    "year": 2023,
+    "type": "others",
+    "pdfLink": "#",
+    "citation": "@inproceedings{voss2023workshop,\n  title={Workshop on Trustworthy AI Proceedings},\n  year={2023}\n}",
+    "aboutSentence": "Short paper discussing reproducibility benchmarks for explainable AI."
+  },
+  {
+    "id": 6,
+    "title": "Bayesian Approaches for Interpretable Time Series",
+    "authors": "E. Voss, N. Patel",
+    "venue": "Journal of ML Research",
+    "year": 2022,
+    "type": "journal",
+    "pdfLink": "#",
+    "citation": "@article{voss2022bayesian,\n  title={Bayesian Approaches for Interpretable Time Series},\n  journal={JMLR},\n  year={2022}\n}",
+    "aboutSentence": "Probabilistic models to uncover latent regimes in healthcare time-series data."
+  }
+]

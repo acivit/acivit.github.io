@@ -1,0 +1,27 @@
+[
+  {
+    "date": "June 12-15, 2025",
+    "title": "Keynote: 'Human-Centered GenAI'",
+    "description": "ACM FAccT Conference, Atlanta. Discussed participatory design for foundation models."
+  },
+  {
+    "date": "March 3, 2025",
+    "title": "Organizer: XAI Workshop @ AAAI",
+    "description": "Co-organized the 3rd Workshop on Explainable AI, with 200+ attendees."
+  },
+  {
+    "date": "November 2024",
+    "title": "Invited Talk: Trustworthy AI in Healthcare",
+    "description": "Johns Hopkins University, Department of Biomedical Informatics."
+  },
+  {
+    "date": "July 2024",
+    "title": "Panelist: Future of HCI & AI",
+    "description": "ACM SIGCHI Summer School, panel on ethical frontiers."
+  },
+  {
+    "date": "February 2024",
+    "title": "Paper Presentation: Concept Bottlenecks",
+    "description": "NeurIPS 2024 (virtual), session on interpretability."
+  }
+]
