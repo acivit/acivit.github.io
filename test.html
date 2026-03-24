@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* Same CSS as before – keep it unchanged */
     * {
       margin: 0;
       padding: 0;
@@ -22,14 +23,12 @@
       scroll-behavior: smooth;
     }
 
-    /* Main grid layout */
     .container {
       display: grid;
       grid-template-columns: 320px 1fr;
       min-height: 100vh;
     }
 
-    /* ========= SIDEBAR (LEFT) ========= */
     .sidebar {
       background: linear-gradient(145deg, #ffffff 0%, #fef9f0 100%);
       backdrop-filter: blur(2px);
@@ -170,7 +169,6 @@
       transform: translateX(6px);
     }
 
-    /* ========= MAIN CONTENT ========= */
     .main-content {
       padding: 2rem 2.5rem;
       background: #ffffff;
@@ -191,7 +189,6 @@
       color: #0f172a;
     }
 
-    /* About text */
     .about-text {
       background: #f9fbfd;
       padding: 1.5rem;
@@ -202,7 +199,6 @@
       border: 1px solid #eef2ff;
     }
 
-    /* FILTER BUTTONS */
     .filter-group {
       display: flex;
       flex-wrap: wrap;
@@ -234,7 +230,6 @@
       transform: translateY(-2px);
     }
 
-    /* Publications list */
     .publications-list {
       display: flex;
       flex-direction: column;
@@ -323,7 +318,6 @@
       display: block;
     }
 
-    /* Timeline (Experience) */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -374,7 +368,6 @@
       font-size: 0.9rem;
     }
 
-    /* Events list */
     .events-list {
       display: flex;
       flex-direction: column;
@@ -414,7 +407,6 @@
       color: #334155;
     }
 
-    /* Modal for citation */
     .modal {
       display: none;
       position: fixed;
@@ -455,7 +447,6 @@
       cursor: pointer;
     }
 
-    /* Responsive */
     @media (max-width: 800px) {
       .container {
         grid-template-columns: 1fr;
@@ -502,11 +493,16 @@
     i, button {
       cursor: pointer;
     }
+
+    .loader {
+      text-align: center;
+      padding: 2rem;
+      color: #2c6e7e;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- LEFT SIDEBAR -->
   <aside class="sidebar">
     <div class="profile-img">
       <img src="https://ui-avatars.com/api/?background=2c6e7e&color=fff&rounded=true&size=160&bold=true&name=Elena+Voss" alt="Dr. Elena Voss">
@@ -532,9 +528,7 @@
     </nav>
   </aside>
 
-  <!-- MAIN RIGHT CONTENT -->
   <main class="main-content">
-    <!-- ABOUT SECTION -->
     <section id="about">
       <div class="section-title">About Me</div>
       <div class="about-text">
@@ -544,7 +538,6 @@
       </div>
     </section>
 
-    <!-- PUBLICATIONS SECTION -->
     <section id="publications">
       <div class="section-title">Publications</div>
       <div class="filter-group" id="filter-buttons">
@@ -554,25 +547,28 @@
         <button class="filter-btn" data-type="book">Book / Chapter</button>
         <button class="filter-btn" data-type="others">Others</button>
       </div>
-      <div id="publications-container" class="publications-list"></div>
+      <div id="publications-container" class="publications-list">
+        <div class="loader">Loading publications...</div>
+      </div>
     </section>
 
-    <!-- EXPERIENCE TIMELINE -->
     <section id="experience">
       <div class="section-title">Experience</div>
-      <div class="timeline" id="timeline-root"></div>
+      <div id="timeline-root" class="timeline">
+        <div class="loader">Loading experience...</div>
+      </div>
     </section>
 
-    <!-- EVENTS SECTION -->
     <section id="events">
       <div class="section-title">Events & Talks</div>
-      <div id="events-container" class="events-list"></div>
+      <div id="events-container" class="events-list">
+        <div class="loader">Loading events...</div>
+      </div>
     </section>
     <footer>© 2025 Elena Voss — Researcher portfolio. Updated 2025</footer>
   </main>
 </div>
 
-<!-- MODAL for citation -->
 <div id="citationModal" class="modal">
   <div class="modal-content">
     <h3><i class="fas fa-quote-right"></i> Citation (BibTeX)</h3>
@@ -582,47 +578,23 @@
 </div>
 
 <script>
-  // ---------- DATA MODELS ----------
-  const publicationsData = [
-    { id: 1, title: "Towards Explainable Zero-Shot Learning with Concept Bottlenecks", authors: "E. Voss, M. Chen, J. Lee", venue: "NeurIPS 2024", year: 2024, type: "conference", pdfLink: "#", citation: "@inproceedings{voss2024towards,\n  title={Towards Explainable Zero-Shot Learning with Concept Bottlenecks},\n  author={Voss, Elena and Chen, M. and Lee, J.},\n  booktitle={NeurIPS},\n  year={2024}\n}", aboutSentence: "We propose concept bottleneck models for zero-shot tasks, improving interpretability by 23% on ImageNet-ZS." },
-    { id: 2, title: "Human-Centered Evaluation of Generative Agents", authors: "E. Voss, S. Park, K. O'Brien", venue: "CHI 2024", year: 2024, type: "conference", pdfLink: "#", citation: "@inproceedings{voss2024human,\n  title={Human-Centered Evaluation of Generative Agents},\n  author={Voss, Elena and Park, S. and O'Brien, K.},\n  booktitle={CHI},\n  year={2024}\n}", aboutSentence: "A mixed-methods study on user trust and mental models of LLM-based agents." },
-    { id: 3, title: "Ethical Alignment in Large Language Models: A Survey", authors: "E. Voss, R. Gupta", venue: "ACM Computing Surveys", year: 2023, type: "journal", pdfLink: "#", citation: "@article{voss2023ethical,\n  title={Ethical Alignment in Large Language Models: A Survey},\n  journal={ACM Comput. Surv.},\n  year={2023}\n}", aboutSentence: "Systematic review of 150+ papers on AI alignment, bias mitigation, and value learning." },
-    { id: 4, title: "Interactive Machine Learning for Digital Humanities", authors: "E. Voss, L. Schmidt", venue: "MIT Press / Chapter 5", year: 2023, type: "book", pdfLink: "#", citation: "@incollection{voss2023interactive,\n  title={Interactive Machine Learning for Digital Humanities},\n  booktitle={AI and Cultural Heritage},\n  publisher={MIT Press},\n  year={2023}\n}", aboutSentence: "Explores co-creative interfaces between historians and neural models for archival analysis." },
-    { id: 5, title: "Workshop on Trustworthy AI @ ICML 2023: Proceedings Paper", authors: "E. Voss, et al.", venue: "ICML Workshop", year: 2023, type: "others", pdfLink: "#", citation: "@inproceedings{voss2023workshop,\n  title={Workshop on Trustworthy AI Proceedings},\n  year={2023}\n}", aboutSentence: "Short paper discussing reproducibility benchmarks for explainable AI." },
-    { id: 6, title: "Bayesian Approaches for Interpretable Time Series", authors: "E. Voss, N. Patel", venue: "Journal of ML Research", year: 2022, type: "journal", pdfLink: "#", citation: "@article{voss2022bayesian,\n  title={Bayesian Approaches for Interpretable Time Series},\n  journal={JMLR},\n  year={2022}\n}", aboutSentence: "Probabilistic models to uncover latent regimes in healthcare time-series data." }
-  ];
+  let publicationsData = [];
+  let currentFilter = "all";
 
-  const experiencesData = [
-    { yearRange: "2022 – Present", title: "Lead Research Scientist", org: "AI & Society Lab, Stanford", description: "Leading 4 interdisciplinary projects on human-AI collaboration. PI of NSF grant on explainable agents." },
-    { yearRange: "2019 – 2022", title: "Postdoctoral Fellow", org: "Max Planck Institute for Intelligent Systems", description: "Researched interactive interpretability, published 8 top-tier conference papers, mentored PhD students." },
-    { yearRange: "2017 – 2019", title: "PhD Researcher", org: "University of Cambridge", description: "Thesis: 'Transparent Deep Learning for Critical Decision Systems'. Awarded Best Dissertation Award." },
-    { yearRange: "2015 – 2016", title: "Research Assistant", org: "MIT Media Lab", description: "Worked on affective computing and human-robot interaction prototypes." }
-  ];
-
-  const eventsData = [
-    { date: "June 12-15, 2025", title: "Keynote: 'Human-Centered GenAI'", description: "ACM FAccT Conference, Atlanta. Discussed participatory design for foundation models." },
-    { date: "March 3, 2025", title: "Organizer: XAI Workshop @ AAAI", description: "Co-organized the 3rd Workshop on Explainable AI, with 200+ attendees." },
-    { date: "November 2024", title: "Invited Talk: Trustworthy AI in Healthcare", description: "Johns Hopkins University, Department of Biomedical Informatics." },
-    { date: "July 2024", title: "Panelist: Future of HCI & AI", description: "ACM SIGCHI Summer School, panel on ethical frontiers." },
-    { date: "February 2024", title: "Paper Presentation: Concept Bottlenecks", description: "NeurIPS 2024 (virtual), session on interpretability." }
-  ];
-
-  // sort publications newest first (desc year)
   function sortPubDesc(pubs) {
-    return [...pubs].sort((a,b) => b.year - a.year);
+    return [...pubs].sort((a, b) => b.year - a.year);
   }
 
-  let currentFilter = "all";
-  let currentPublications = sortPubDesc(publicationsData);
-
-  // render publications based on filter
   function renderPublications() {
     const container = document.getElementById('publications-container');
-    let filtered = currentPublications;
-    if (currentFilter !== "all") {
-      filtered = currentPublications.filter(pub => pub.type === currentFilter);
+    if (!publicationsData.length) {
+      container.innerHTML = '<div class="loader">No publications found.</div>';
+      return;
     }
-    // maintain newest first order
+    let filtered = publicationsData;
+    if (currentFilter !== "all") {
+      filtered = publicationsData.filter(pub => pub.type === currentFilter);
+    }
     filtered = sortPubDesc(filtered);
 
     if (filtered.length === 0) {
@@ -631,27 +603,26 @@
     }
 
     container.innerHTML = filtered.map(pub => `
-      <div class="pub-item" data-pub-id="${pub.id}">
+      <div class="pub-item">
         <div class="pub-title">${escapeHtml(pub.title)}</div>
         <div class="pub-authors">${escapeHtml(pub.authors)}</div>
         <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
         <div class="pub-actions">
-          <a href="${pub.pdfLink}" class="pdf-btn" data-pdf="${pub.pdfLink}" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="${pub.pdfLink || '#'}" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
           <button class="cite-btn" data-citation="${escapeHtml(pub.citation)}"><i class="fas fa-quote-right"></i> Cite</button>
           <button class="about-btn"><i class="fas fa-info-circle"></i> About</button>
         </div>
-        <div class="pub-about-sentence" id="about-${pub.id}">${escapeHtml(pub.aboutSentence)}</div>
+        <div class="pub-about-sentence">${escapeHtml(pub.aboutSentence)}</div>
       </div>
     `).join('');
 
-    // attach event listeners for cite and about toggle using delegation (main container)
     attachPubEvents();
   }
 
   function attachPubEvents() {
     const container = document.getElementById('publications-container');
     if (!container) return;
-    // citation modal event
+
     container.querySelectorAll('.cite-btn').forEach(btn => {
       btn.removeEventListener('click', handleCiteClick);
       btn.addEventListener('click', handleCiteClick);
@@ -660,7 +631,6 @@
       btn.removeEventListener('click', handleAboutToggle);
       btn.addEventListener('click', handleAboutToggle);
     });
-    // PDF already opens with href, but fine.
   }
 
   function handleCiteClick(e) {
@@ -679,28 +649,27 @@
     const pubItem = btn.closest('.pub-item');
     if (pubItem) {
       const sentenceDiv = pubItem.querySelector('.pub-about-sentence');
-      if (sentenceDiv) {
-        sentenceDiv.classList.toggle('show');
-      }
+      if (sentenceDiv) sentenceDiv.classList.toggle('show');
     }
   }
 
-  function escapeHtml(str) { 
-    if(!str) return '';
+  function escapeHtml(str) {
+    if (!str) return '';
     return str.replace(/[&<>]/g, function(m) {
-      if(m === '&') return '&amp;';
-      if(m === '<') return '&lt;';
-      if(m === '>') return '&gt;';
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
       return m;
-    }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-      return c;
     });
   }
 
-  // Render Experience timeline
-  function renderExperience() {
+  function renderExperience(experiences) {
     const timelineRoot = document.getElementById('timeline-root');
-    timelineRoot.innerHTML = experiencesData.map(exp => `
+    if (!experiences || experiences.length === 0) {
+      timelineRoot.innerHTML = '<div class="loader">No experience data.</div>';
+      return;
+    }
+    timelineRoot.innerHTML = experiences.map(exp => `
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-date">${escapeHtml(exp.yearRange)}</div>
@@ -710,18 +679,18 @@
     `).join('');
   }
 
-  // Render Events (chronological newest first)
-  function renderEvents() {
-    const eventsSorted = [...eventsData].sort((a,b) => new Date(b.date.split(',')[0] + " " + b.date.split(',')[1]) - new Date(a.date.split(',')[0] + " " + a.date.split(',')[1]));
-    // fallback sort by string year? For simplicity: parse years if available, but show desc
-    // better sort by year from date string: extract 2025,2024 etc
-    const sortedEvents = [...eventsData].sort((e1,e2) => {
+  function renderEvents(events) {
+    const container = document.getElementById('events-container');
+    if (!events || events.length === 0) {
+      container.innerHTML = '<div class="loader">No upcoming events.</div>';
+      return;
+    }
+    const sortedEvents = [...events].sort((e1, e2) => {
       const year1 = parseInt(e1.date.match(/\d{4}/)?.[0] || "0");
       const year2 = parseInt(e2.date.match(/\d{4}/)?.[0] || "0");
-      if(year1 !== year2) return year2 - year1;
+      if (year1 !== year2) return year2 - year1;
       return 0;
     });
-    const container = document.getElementById('events-container');
     container.innerHTML = sortedEvents.map(ev => `
       <div class="event-card">
         <div class="event-date"><i class="far fa-calendar-alt"></i> ${escapeHtml(ev.date)}</div>
@@ -731,7 +700,6 @@
     `).join('');
   }
 
-  // filter functionality
   function setupFilters() {
     const btns = document.querySelectorAll('.filter-btn');
     btns.forEach(btn => {
@@ -744,7 +712,6 @@
     });
   }
 
-  // modal close
   function initModal() {
     const modal = document.getElementById('citationModal');
     const closeBtn = document.getElementById('closeModalBtn');
@@ -752,17 +719,45 @@
       modal.style.display = 'none';
     });
     window.addEventListener('click', (e) => {
-      if(e.target === modal) modal.style.display = 'none';
+      if (e.target === modal) modal.style.display = 'none';
     });
   }
 
-  // initial load all sections
+  async function loadData() {
+    try {
+      // Update paths to match your folder structure
+      const pubResponse = await fetch('sections/publications.json');
+      if (!pubResponse.ok) throw new Error('Failed to load publications.json');
+      publicationsData = await pubResponse.json();
+      renderPublications();
+
+      const expResponse = await fetch('sections/experiences.json');
+      if (expResponse.ok) {
+        const experiences = await expResponse.json();
+        renderExperience(experiences);
+      } else {
+        renderExperience([]);
+      }
+
+      const eventsResponse = await fetch('sections/events.json');
+      if (eventsResponse.ok) {
+        const events = await eventsResponse.json();
+        renderEvents(events);
+      } else {
+        renderEvents([]);
+      }
+    } catch (error) {
+      console.error('Error loading data:', error);
+      document.getElementById('publications-container').innerHTML = '<div class="loader">Error loading publications. Check console.</div>';
+      document.getElementById('timeline-root').innerHTML = '<div class="loader">Error loading experience.</div>';
+      document.getElementById('events-container').innerHTML = '<div class="loader">Error loading events.</div>';
+    }
+  }
+
   function init() {
-    renderPublications();
-    renderExperience();
-    renderEvents();
-    setupFilters();
     initModal();
+    setupFilters();
+    loadData();
   }
 
   init();

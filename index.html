@@ -515,13 +515,13 @@
   <!-- LEFT SIDEBAR (static) -->
   <aside class="sidebar">
     <div class="profile-img">
-      <img src="https://ui-avatars.com/api/?background=2c6e7e&color=fff&rounded=true&size=160&bold=true&name=Elena+Voss" alt="Dr. Elena Voss">
+      <img src="assets/img/aniol_gran.jpg" alt="Aniol Civit">
     </div>
     <h2>Aniol Civit</h2>
     <div class="position">PhD Candidate at IRI, CSIC-UPC</div>
     <div class="contact-info">
       <i class="fas fa-envelope"></i>
-      <a href="mailto:elena.voss@research.edu">acivit@iri.upc.edu</a>
+      <a href="mailto:acivit@iri.upc.edu">acivit@iri.upc.edu</a>
     </div>
     <div class="social-icons">
       <a href="#" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
@@ -558,6 +558,7 @@
         <button class="filter-btn" data-type="conference">Conference</button>
         <button class="filter-btn" data-type="journal">Journal</button>
         <button class="filter-btn" data-type="book">Book / Chapter</button>
+        <button class="filter-btn" data-type="preprint">Preprints</button>
         <button class="filter-btn" data-type="others">Others</button>
       </div>
       <div id="publications-container" class="publications-list">
@@ -622,7 +623,7 @@
     }
 
     container.innerHTML = filtered.map(pub => `
-      <div class="pub-item" data-pub-id="${pub.id}">
+      <div class="pub-item"">
         <div class="pub-title">${escapeHtml(pub.title)}</div>
         <div class="pub-authors">${escapeHtml(pub.authors)}</div>
         <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
@@ -631,7 +632,7 @@
           <button class="cite-btn" data-citation="${escapeHtml(pub.citation)}"><i class="fas fa-quote-right"></i> Cite</button>
           <button class="about-btn"><i class="fas fa-info-circle"></i> About</button>
         </div>
-        <div class="pub-about-sentence" id="about-${pub.id}">${escapeHtml(pub.aboutSentence)}</div>
+        <div class="pub-about-sentence">${escapeHtml(pub.aboutSentence)}</div>
       </div>
     `).join('');
 
