@@ -1,26 +1,32 @@
 [
   {
-    "yearRange": "2022 – Present",
-    "title": "Lead Research Scientist",
-    "org": "AI & Society Lab, Stanford",
-    "description": "Leading 4 interdisciplinary projects on human-AI collaboration. PI of NSF grant on explainable agents."
+    "yearRange": "June 2023 – Present",
+    "title": "PhD in Automatic Control, Robotics and Computer Vision",
+    "org": "IRI, CSIC-UPC",
+    "description": "Temptative title: Learning Preferences and Resolving Conflicts in Multi-User Personalisation in Human-Robot Interaction"
   },
   {
-    "yearRange": "2019 – 2022",
-    "title": "Postdoctoral Fellow",
-    "org": "Max Planck Institute for Intelligent Systems",
-    "description": "Researched interactive interpretability, published 8 top-tier conference papers, mentored PhD students."
+    "yearRange": "March 2021 – May 2023",
+    "title": "AI Developer",
+    "org": "Datision",
+    "description": "Working developing AI solutions for industry 4.0"
   },
   {
-    "yearRange": "2017 – 2019",
-    "title": "PhD Researcher",
-    "org": "University of Cambridge",
-    "description": "Thesis: 'Transparent Deep Learning for Critical Decision Systems'. Awarded Best Dissertation Award."
-  },
-  {
-    "yearRange": "2015 – 2016",
+    "yearRange": "October 2020 – March 2021",
     "title": "Research Assistant",
-    "org": "MIT Media Lab",
-    "description": "Worked on affective computing and human-robot interaction prototypes."
+    "org": "IRI, CSIC-UPC",
+    "description": "Providing support in the SIMBIOTS project."
+  },
+  {
+    "yearRange": "September 2018 – July 2020",
+    "title": "Master's Degree in Automatic Control and Robotics",
+    "org": "Universitat Politècnica de Catalunya",
+    "description": "Master Thesis at IRI, CSIC-UPC: Reinforcement Learning for Robotic-Assisted Tasks. While working with a 'Excellence Maria de Maetzu Internship' at IRI-UPC in the project: Animated characters based on textual descriptions."
+  },
+  {
+    "yearRange": "September 2013 – May 2018",
+    "title": "Bachelor's Degree in Engineering in Industrial Technologies",
+    "org": "Universitat Politècnica de Catalunya",
+    "description": ""
   }
 ]

@@ -7,7 +7,7 @@
   },
   {
     "date": "October 2025",
-    "title": "Participation at 'Matins per la recerca'",
+    "title": "Participation at 'Matins de la recerca' 2025",
     "description": "Giving a talk to two classrooms from a primary school in Barcelona. The title of the talk: Assistive Robots",
     "type": "seminar"
   },
@@ -19,7 +19,7 @@
   },
   {
     "date": "October 2024",
-    "title": "Participation at 'Matins per la recerca'",
+    "title": "Participation at 'Matins de la recerca' 2024",
     "description": "Giving a talk to two classrooms from a primary school in Barcelona. The title of the talk: Assistive Robots",
     "type": "seminar"
   },
@@ -30,9 +30,21 @@
     "type": "research-stay"
   },
   {
+    "date": "June 2024",
+    "title": "Participation at 'Festa Ciència'",
+    "description": "We brought our robot that performs frailty assessments on older adults and showed it on a general public in a fair in Barcelona.",
+    "type": "seminar"
+  },
+  {
     "date": "March 2024",
     "title": "Honorable Mention for Best Late Breaking Report (HRI 2024)",
     "description": "Obtained an honorable mention for our paper 'Introducing Social Robots to Assess Frailty in Older Adults' in the conference HRI 2024",
     "type": "award"
+  },
+  {
+    "date": "November 2023 - November 2026",
+    "title": "PhD Students representative at IRI, CSIC-UPC",
+    "description": "I became the representative of PhD Students in our institution.",
+    "type": ""
   }
 ]
