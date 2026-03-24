@@ -272,10 +272,17 @@
     }
 
     .pub-venue {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-style: italic;
       color: #2c6e7e;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-keywords {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #475569;
+      margin-bottom: 0.5rem;
     }
 
     .pub-actions {
@@ -633,7 +640,7 @@
         <div class="pub-title">${escapeHtml(pub.title)}</div>
         <div class="pub-authors">${escapeHtml(pub.authors)}</div>
         <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
-        <div class="pub-keywords">${escapeHtml(pub.keywords)}</div>
+        <div class="pub-keywords">Keywords: ${escapeHtml(pub.keywords)}</div>
         <div class="pub-actions">
           <a href="${pub.pdfLink || '#'}" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
           <button class="cite-btn" data-citation="${escapeHtml(pub.citation)}"><i class="fas fa-quote-right"></i> Cite</button>
