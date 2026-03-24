@@ -3,60 +3,66 @@
   "title": "From User Preferences to Base Score Extraction Functions in Gradual Argumentation",
   "authors": "A. Civit, A. Rago, A. Andriella, G. Alenyà, F. Toni",
   "venue": "(AAMAS) International Conference on Autonomous Agents and Multiagent Systems",
+  "keywords": "Gradual Argumentation; Base Score Extraction; User Preferences",
   "year": 2026,
   "type": "conference",
   "pdfLink": "https://arxiv.org/pdf/2602.14674",
   "citation": "@article{civit2026user,\n  title={From User Preferences to Base Score Extraction Functions in Gradual Argumentation (with Appendix)},\n  author={Civit, Aniol and Rago, Antonio and Andriella, Antonio and Aleny{\\`a}, Guillem and Toni, Francesca},\n  journal={arXiv preprint arXiv:2602.14674},\n  year={2026}\n}",
-  "aboutSentence": "We propose concept bottleneck models for zero-shot tasks, improving interpretability by 23% on ImageNet-ZS."
+  "aboutSentence": "Base Score Extraction Functions to derive base scores from a Bipolar Argumentation Framework considering a user preferences over the arguments."
 },
   {
   "title": "Multi-User Personalisation in Human-Robot Interaction: Resolving Preference Conflicts Using Gradual Argumentation",
   "authors": "A. Civit, A. Andriella, C. Sierra, G. Alenyà",
   "venue": "arXiv preprint",
+  "keywords": "Assistive Robots, Multi-User Personalisation, Gradual Argumentation, Conflict Resolution",
   "year": 2025,
   "type": "preprint",
   "pdfLink": "https://arxiv.org/pdf/2511.03576",
   "citation": "@article{civit2025multi,\n  title={Multi-User Personalisation in Human-Robot Interaction: Resolving Preference Conflicts Using Gradual Argumentation},\n  author={Civit, Aniol and Andriella, Antonio and Sierra, Carles and Aleny{\\`a}, Guillem},\n  journal={arXiv preprint arXiv:2511.03576},\n  year={2025}\n}",
-  "aboutSentence": "A mixed-methods study on user trust and mental models of LLM-based agents."
+  "aboutSentence": "Using Gradual Argumentation Frameworks to resolve Multi-User preferences conflicts in HRI."
   },
   {
   "title": "Robots as Mediators to Resolve Multi-User Preference Conflicts - Extended Abstract",
   "authors": "A. Civit, R. Stower, I. Leite, A. Andriella, G. Alenyà",
   "venue": "(Warn workshop at ROMAN) IEEE International Conference on Robot and Human Interactive Communication",
+  "keywords": "Robot Personalisation, Multi-User Preferences, Conict Resolution, Social Robotics",
   "year": 2024,
   "type": "other",
   "pdfLink": "https://www.iri.upc.edu/files/scidoc/2960-Robots-as-mediators-to-resolve-multi-user-preference-conflicts---extended-abstract.pdf",
   "citation": "@inproceedings{Civit_warn_roman24,\n  title={Robots as Mediators to Resolve Multi-User Preference Conflicts},\n  author={Civit, Aniol and Stower, Rebecca and Leite, Iolanda and Andriella, Antonio and Aleny{\\`a}, Guillem},\n  booktitle={2024 ALTRUIST Workshop on SociAL RoboTs for PeRsonalized, ContinUous and AdaptIve ASsisTance, BAILAR Workshop on Behavior Adaptation and Learning for Assistive Robotics, SCRITA Workshop on Trust, Acceptance and Social Cues in Human-Robot Interaction, and WARN Workshop on Weighing the Benefits of Autonomous Robot PersoNalisation, ALTRUIST-BAILAR-SCRITA-WARN 2024, Pasadena, United States of America, Aug 26 2024},\n  year={2024},\n  organization={CEUR-WS}\n}",
-  "aboutSentence": "Systematic review of 150+ papers on AI alignment, bias mitigation, and value learning."
+  "aboutSentence": "Introduction of the problem of multi-user preferences conflicts in HRI and potential measures to deal with it."
 },
   {
   "title": "Exploring the Potential of a Robot-Assisted Frailty Assessment System for Elderly Care",
   "authors": "A. Civit, A. Andriella, M. Antonio, C. Javierre, C. Boqué, G. Alenyà",
   "venue": "(ROMAN) IEEE International Conference on Robot and Human Interactive Communication",
+  "keywords": "Frailty Assessment, Tests measurement validation, Older Adults",
   "year": 2024,
   "type": "conference",
   "pdfLink": "https://upcommons.upc.edu/server/api/core/bitstreams/30d33c49-e84b-4088-9b1a-60d630e090ac/content",
   "citation": "@inproceedings{civit_roman24,\n  title={Exploring the potential of a robot-assisted frailty assessment system for elderly care},\n  author={Civit, Aniol and Andriella, Antonio and Antonio, Maite and Javierre, Casimiro and Boqu{\\'e}, Concepci{\\'o}n and Aleny{\\`a}, Guillem},\n  booktitle={33rd IEEE International Conference on Robot and Human Interactive Communication (ROMAN)},\n  pages={168--175},\n  year={2024}\n}",
-  "aboutSentence": "Short paper discussing reproducibility benchmarks for explainable AI."
+  "aboutSentence": "Set of algorithms to automatically assess frailty and extracting additional metrics. Validation with Gold Standards."
 },
   {
   "title": "Introducing Social Robots to Assess Frailty in Older Adults",
   "authors": "A. Civit, A. Andriella, C. Barrue, M. Antonio, C. Boqué, G. Alenyà",
   "venue": "(HRI) ACM/IEEE International Conference on Human-Robot Interaction",
+  "keywords": "Frailty Assessment, Healthcare, Social Robots, Older Adults",
   "year": 2024,
   "type": "conference",
   "pdfLink": "https://dl.acm.org/doi/epdf/10.1145/3610978.3640660",
   "citation": "@inproceedings{civit_hri24,\n title={Introducing social robots to assess frailty in older adults},\n author={Civit, Aniol and Andriella, Antonio and Barrue, Cristian and Antonio, Maite and Boqu{\\'e}, Concepci{\\'o}n and Aleny{\\`a}, Guillem},\n booktitle={Companion of the 2024 ACM/IEEE International Conference on Human-Robot Interaction},\n pages={342--346},\n year={2024}\n}",
-  "aboutSentence": "Probabilistic models to uncover latent regimes in healthcare time-series data."
+  "aboutSentence": "Introduction of a framework for robotic frailty assessments co-designed with healthcare professionals. Discussing about the potential challenges for HRI in this setting."
 },
   {
   "title": "AVATAR: Blender Add-on for Fast Creation of 3D Human Models",
   "authors": "J. Sanchez-Riera, A. Civit, M. Altarriba, F. Moreno-Noguer",
   "venue": "arXiv preprint",
+  "keywords": "Blender, 3D Human Generation",
   "year": 2021,
   "type": "preprint",
   "pdfLink": "https://arxiv.org/pdf/2103.14507",
   "citation": "@article{sanchez2021avatar,\n title={AVATAR: Blender add-on for fast creation of 3D human models},\n author={Sanchez-Riera, Jordi and Civit, Aniol and Altarriba, Marta and Moreno-Noguer, Francesc},\n journal={arXiv preprint arXiv:2103.14507},\n year={2021}}",
-  "aboutSentence": "Explores co-creative interfaces between historians and neural models for archival analysis."
+  "aboutSentence": "Blender add-on for 3D Human generation with parameters to adjust body shape."
 }
 ]

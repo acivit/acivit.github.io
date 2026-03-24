@@ -1,27 +1,38 @@
 [
   {
-    "date": "June 12-15, 2025",
-    "title": "Keynote: 'Human-Centered GenAI'",
-    "description": "ACM FAccT Conference, Atlanta. Discussed participatory design for foundation models."
+    "date": "March-June, 2026",
+    "title": "Research Stay at King's College London",
+    "description": "Research Stay at Imperial College under supervision of Dr. Antonio Rago.",
+    "type": "research-stay"
   },
   {
-    "date": "March 3, 2025",
-    "title": "Organizer: XAI Workshop @ AAAI",
-    "description": "Co-organized the 3rd Workshop on Explainable AI, with 200+ attendees."
+    "date": "October 2025",
+    "title": "Participation at 'Matins per la recerca'",
+    "description": "Giving a talk to two classrooms from a primary school in Barcelona. The title of the talk: Assistive Robots",
+    "type": "seminar"
   },
   {
-    "date": "November 2024",
-    "title": "Invited Talk: Trustworthy AI in Healthcare",
-    "description": "Johns Hopkins University, Department of Biomedical Informatics."
+    "date": "May 2025",
+    "title": "Research Stay at Imperial College London",
+    "description": "Research Stay at Imperial College under supervision of Dr. Francesca Toni and Dr. Antonio Rago.",
+    "type": "research-stay"
   },
   {
-    "date": "July 2024",
-    "title": "Panelist: Future of HCI & AI",
-    "description": "ACM SIGCHI Summer School, panel on ethical frontiers."
+    "date": "October 2024",
+    "title": "Participation at 'Matins per la recerca'",
+    "description": "Giving a talk to two classrooms from a primary school in Barcelona. The title of the talk: Assistive Robots",
+    "type": "seminar"
   },
   {
-    "date": "February 2024",
-    "title": "Paper Presentation: Concept Bottlenecks",
-    "description": "NeurIPS 2024 (virtual), session on interpretability."
+    "date": "June 2024",
+    "title": "RPL Summer School",
+    "description": "Assistance in the Summer School organised by the RPL group from the KTH university.",
+    "type": "research-stay"
+  },
+  {
+    "date": "March 2024",
+    "title": "Honorable Mention for Best Late Breaking Report (HRI 2024)",
+    "description": "Obtained an honorable mention for our paper 'Introducing Social Robots to Assess Frailty in Older Adults' in the conference HRI 2024",
+    "type": "award"
   }
 ]

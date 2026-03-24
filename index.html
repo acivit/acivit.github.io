@@ -577,6 +577,12 @@
     <!-- EVENTS SECTION (dynamic) -->
     <section id="events">
       <div class="section-title">Events & Talks</div>
+      <div class="filter-group" id="event-filter-buttons" style="margin-bottom: 1.5rem;">
+        <button class="filter-btn event-filter-btn active" data-event-type="all">All Events</button>
+        <button class="filter-btn event-filter-btn" data-event-type="award"><i class="fas fa-trophy"></i> Awards</button>
+        <button class="filter-btn event-filter-btn" data-event-type="seminar"><i class="fas fa-book"></i> Seminars</button>
+        <button class="filter-btn event-filter-btn" data-event-type="research-stay"><i class="fas fa-plane"></i> Research Stays</button>
+      </div>
       <div id="events-container" class="events-list">
         <div class="loader">Loading events...</div>
       </div>
@@ -627,6 +633,7 @@
         <div class="pub-title">${escapeHtml(pub.title)}</div>
         <div class="pub-authors">${escapeHtml(pub.authors)}</div>
         <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
+        <div class="pub-keywords">${escapeHtml(pub.keywords)}</div>
         <div class="pub-actions">
           <a href="${pub.pdfLink || '#'}" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
           <button class="cite-btn" data-citation="${escapeHtml(pub.citation)}"><i class="fas fa-quote-right"></i> Cite</button>
@@ -700,29 +707,50 @@
     `).join('');
   }
 
-  // Render Events (chronological newest first)
   function renderEvents(events) {
     const container = document.getElementById('events-container');
     if (!events || events.length === 0) {
       container.innerHTML = '<div class="loader">No upcoming events.</div>';
       return;
     }
-    // Sort events by year descending (extract year from date string)
+    
+    // Sort events by year descending (newest first)
     const sortedEvents = [...events].sort((e1, e2) => {
       const year1 = parseInt(e1.date.match(/\d{4}/)?.[0] || "0");
       const year2 = parseInt(e2.date.match(/\d{4}/)?.[0] || "0");
       if (year1 !== year2) return year2 - year1;
       return 0;
     });
-    container.innerHTML = sortedEvents.map(ev => `
-      <div class="event-card">
-        <div class="event-date"><i class="far fa-calendar-alt"></i> ${escapeHtml(ev.date)}</div>
-        <div class="event-title">${escapeHtml(ev.title)}</div>
-        <div class="event-desc">${escapeHtml(ev.description)}</div>
-      </div>
-    `).join('');
+    
+    container.innerHTML = sortedEvents.map(ev => {
+      // Determine icon based on event type
+      let iconHtml = '';
+      switch(ev.type) {
+        case 'award':
+          iconHtml = '<i class="fas fa-trophy" style="color: #f59e0b;"></i>';
+          break;
+        case 'seminar':
+          iconHtml = '<i class="fas fa-book" style="color: #2c6e7e;"></i>';
+          break;
+        case 'research-stay':
+          iconHtml = '<i class="fas fa-plane" style="color: #10b981;"></i>';
+          break;
+        default:
+          iconHtml = '<i class="fas fa-calendar-alt" style="color: #6b7280;"></i>';
+      }
+      
+      return `
+        <div class="event-card">
+          <div class="event-date">
+            ${iconHtml}
+            <span style="margin-left: 8px;">${escapeHtml(ev.date)}</span>
+          </div>
+          <div class="event-title">${escapeHtml(ev.title)}</div>
+          <div class="event-desc">${escapeHtml(ev.description)}</div>
+        </div>
+      `;
+    }).join('');
   }
-
   // Filter functionality
   function setupFilters() {
     const btns = document.querySelectorAll('.filter-btn');
@@ -734,6 +762,29 @@
         renderPublications();
       });
     });
+  }
+
+  let currentEventFilter = "all";
+  let allEventsData = [];
+
+  function setupEventFilters() {
+    const btns = document.querySelectorAll('.event-filter-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentEventFilter = btn.getAttribute('data-event-type');
+        renderEventsWithFilter();
+      });
+    });
+  }
+
+  function renderEventsWithFilter() {
+    let filtered = allEventsData;
+    if (currentEventFilter !== "all") {
+      filtered = allEventsData.filter(event => event.type === currentEventFilter);
+    }
+    renderEvents(filtered);
   }
 
   // Modal close
@@ -751,26 +802,23 @@
   // Load data from JSON files
   async function loadData() {
     try {
-      // Fetch publications
       const pubResponse = await fetch('sections/publications.json');
       if (!pubResponse.ok) throw new Error('Failed to load publications.json');
       publicationsData = await pubResponse.json();
       renderPublications();
 
-      // Fetch experiences
       const expResponse = await fetch('sections/experiences.json');
       if (expResponse.ok) {
         const experiences = await expResponse.json();
         renderExperience(experiences);
       } else {
-        renderExperience([]); // fallback empty
+        renderExperience([]);
       }
 
-      // Fetch events
       const eventsResponse = await fetch('sections/events.json');
       if (eventsResponse.ok) {
-        const events = await eventsResponse.json();
-        renderEvents(events);
+        allEventsData = await eventsResponse.json();
+        renderEventsWithFilter();
       } else {
         renderEvents([]);
       }
@@ -786,6 +834,7 @@
   function init() {
     initModal();
     setupFilters();
+    setupEventFilters();
     loadData();
   }
 
