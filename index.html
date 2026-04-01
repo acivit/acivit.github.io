@@ -617,13 +617,14 @@
     return [...pubs].sort((a, b) => b.year - a.year);
   }
 
-  function getIconHtml(iconName) {
+// Helper to map extra_icon to Font Awesome HTML
+function getIconHtml(iconName) {
   switch (iconName) {
     case 'award':
       return '<i class="fas fa-trophy" style="color: #f59e0b;"></i>';
-    // Add more cases as needed
+    // Add more cases as needed (e.g., 'star', 'medal')
     default:
-      return ''; // or a fallback icon
+      return '';
   }
 }
 
@@ -647,15 +648,13 @@ function renderPublications() {
 
   container.innerHTML = filtered.map(pub => `
     <div class="pub-item">
-      <div class="pub-title">${escapeHtml(pub.title)}</div>
+      <div class="pub-title">
+        ${pub.extra_icon && pub.extra ? `<span class="pub-extra-icon" style="margin-right: 0.5rem;">${getIconHtml(pub.extra_icon)}</span>` : ''}
+        ${escapeHtml(pub.title)}
+        ${pub.extra_icon && pub.extra ? `<span class="pub-extra-text" style="font-style: italic; color: #6c757d;"> (${escapeHtml(pub.extra)})</span>` : ''}
+      </div>
       <div class="pub-authors">${escapeHtml(pub.authors)}</div>
       <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
-      ${pub.extra_icon && pub.extra ? `
-        <div class="pub-extra">
-          <span class="pub-extra-icon">${getIconHtml(pub.extra_icon)}</span>
-          <span class="pub-extra-text" style="font-style: italic; color: #6c757d;">${escapeHtml(pub.extra)}</span>
-        </div>
-      ` : ''}
       <div class="pub-keywords">Keywords: ${escapeHtml(pub.keywords)}</div>
       <div class="pub-actions">
         <a href="${pub.pdfLink || '#'}" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
