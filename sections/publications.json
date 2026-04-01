@@ -44,6 +44,8 @@
   "aboutSentence": "Set of algorithms to automatically assess frailty and extracting additional metrics. Validation with Gold Standards."
 },
   {
+  "extra_icon": "award",
+  "extra": "Nominated for the best Late Breaking Report",
   "title": "Introducing Social Robots to Assess Frailty in Older Adults",
   "authors": "A. Civit, A. Andriella, C. Barrue, M. Antonio, C. Boqué, G. Alenyà",
   "venue": "(HRI) ACM/IEEE International Conference on Human-Robot Interaction",
