@@ -14,12 +14,103 @@
       box-sizing: border-box;
     }
 
+    /* Light mode (default) */
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-sidebar: linear-gradient(145deg, #ffffff 0%, #fef9f0 100%);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #475569;
+      --border-light: rgba(0, 0, 0, 0.05);
+      --border-color: #eef2ff;
+      --accent-color: #2c6e7e;
+      --accent-light: #3b7c8c;
+      --accent-bg: #eef2ff;
+      --card-bg: #ffffff;
+      --card-hover: #ffffff;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+      --about-bg: #f9fbfd;
+      --about-sentence-bg: #f1f9fe;
+      --contact-bg: #f1f5f9;
+      --filter-btn-bg: #f1f5f9;
+      --filter-btn-hover: #cbd5e1;
+      --event-card-bg: #fefcf7;
+      --modal-overlay: rgba(0, 0, 0, 0.5);
+      --footer-text: #94a3b8;
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-sidebar: linear-gradient(145deg, #1e293b 0%, #1a1f2e 100%);
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-light: rgba(255, 255, 255, 0.05);
+      --border-color: #334155;
+      --accent-color: #5fa8b8;
+      --accent-light: #7ec0d0;
+      --accent-bg: #1e3a4d;
+      --card-bg: #1e293b;
+      --card-hover: #263446;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
+      --about-bg: #1e293b;
+      --about-sentence-bg: #1e3a4d;
+      --contact-bg: #1e293b;
+      --filter-btn-bg: #1e293b;
+      --filter-btn-hover: #334155;
+      --event-card-bg: #1e293b;
+      --modal-overlay: rgba(0, 0, 0, 0.8);
+      --footer-text: #64748b;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.5;
       scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .theme-toggle-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .theme-toggle-btn:hover {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 8px 25px rgba(44, 110, 126, 0.3);
+    }
+
+    .theme-toggle-btn i {
+      transition: transform 0.3s ease;
     }
 
     /* Main grid layout */
@@ -31,15 +122,16 @@
 
     /* ========= SIDEBAR (LEFT) ========= */
     .sidebar {
-      background: linear-gradient(145deg, #ffffff 0%, #fef9f0 100%);
+      background: var(--bg-sidebar);
       backdrop-filter: blur(2px);
-      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      border-right: 1px solid var(--border-light);
       padding: 2rem 1.8rem;
       position: sticky;
       top: 0;
       height: 100vh;
       overflow-y: auto;
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.02);
+      box-shadow: 4px 0 20px var(--shadow-md);
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
     .profile-img {
@@ -52,8 +144,8 @@
       height: 160px;
       object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
-      border: 4px solid white;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--bg-secondary);
       transition: transform 0.3s ease;
     }
 
@@ -67,13 +159,14 @@
       text-align: center;
       letter-spacing: -0.3px;
       margin-top: 0.5rem;
+      color: var(--text-primary);
     }
 
     .position {
       text-align: center;
       font-weight: 500;
-      color: #3b7c8c;
-      background: #eef2ff;
+      color: var(--accent-light);
+      background: var(--accent-bg);
       display: inline-block;
       width: 100%;
       padding: 0.3rem;
@@ -90,18 +183,19 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #f1f5f9;
+      background: var(--contact-bg);
       padding: 0.5rem;
       border-radius: 60px;
+      color: var(--text-secondary);
     }
 
     .contact-info i {
-      color: #2c6e7e;
+      color: var(--accent-color);
       width: 28px;
     }
 
     .contact-info a {
-      color: #1e293b;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 500;
     }
@@ -114,21 +208,21 @@
     }
 
     .social-icons a {
-      background: white;
+      background: var(--bg-secondary);
       width: 42px;
       height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      color: #1e293b;
+      color: var(--text-primary);
       font-size: 1.3rem;
       transition: all 0.2s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
     }
 
     .social-icons a:hover {
-      background: #0f172a;
+      background: var(--accent-color);
       color: white;
       transform: translateY(-3px);
     }
@@ -149,7 +243,7 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
-      color: #334155;
+      color: var(--text-secondary);
       display: flex;
       align-items: center;
       gap: 12px;
@@ -161,19 +255,20 @@
     .nav-menu a i {
       width: 28px;
       font-size: 1.2rem;
-      color: #2c6e7e;
+      color: var(--accent-color);
     }
 
     .nav-menu a:hover {
-      background: #e6f0f5;
-      color: #0f2c38;
+      background: var(--accent-bg);
+      color: var(--text-primary);
       transform: translateX(6px);
     }
 
     /* ========= MAIN CONTENT ========= */
     .main-content {
       padding: 2rem 2.5rem;
-      background: #ffffff;
+      background: var(--bg-secondary);
+      transition: background-color 0.3s ease;
     }
 
     section {
@@ -184,22 +279,24 @@
     .section-title {
       font-size: 1.8rem;
       font-weight: 700;
-      border-left: 5px solid #2c6e7e;
+      border-left: 5px solid var(--accent-color);
       padding-left: 1rem;
       margin-bottom: 1.8rem;
       letter-spacing: -0.3px;
-      color: #0f172a;
+      color: var(--text-primary);
     }
 
     /* About text */
     .about-text {
-      background: #f9fbfd;
+      background: var(--about-bg);
       padding: 1.5rem;
       border-radius: 28px;
       line-height: 1.6;
       font-size: 1.05rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      border: 1px solid #eef2ff;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
     /* FILTER BUTTONS */
@@ -211,7 +308,7 @@
     }
 
     .filter-btn {
-      background: #f1f5f9;
+      background: var(--filter-btn-bg);
       border: none;
       padding: 0.5rem 1.2rem;
       border-radius: 40px;
@@ -220,17 +317,17 @@
       cursor: pointer;
       transition: all 0.2s;
       font-size: 0.85rem;
-      color: #1e293b;
+      color: var(--text-primary);
     }
 
     .filter-btn.active {
-      background: #2c6e7e;
+      background: var(--accent-color);
       color: white;
       box-shadow: 0 4px 8px rgba(44, 110, 126, 0.2);
     }
 
     .filter-btn:hover {
-      background: #cbd5e1;
+      background: var(--filter-btn-hover);
       transform: translateY(-2px);
     }
 
@@ -242,11 +339,11 @@
     }
 
     .pub-item {
-      background: white;
+      background: var(--card-bg);
       border-radius: 24px;
       padding: 1.2rem 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-      border: 1px solid #eef2ff;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
       transition: all 0.25s ease;
       cursor: default;
     }
@@ -254,34 +351,34 @@
     .pub-item:hover {
       box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.15);
       transform: scale(1.01);
-      background: #ffffff;
-      border-color: #cbdff2;
+      background: var(--card-hover);
+      border-color: var(--accent-light);
     }
 
     .pub-title {
       font-weight: 700;
       font-size: 1.1rem;
-      color: #0f172a;
+      color: var(--text-primary);
       margin-bottom: 0.3rem;
     }
 
     .pub-authors {
       font-size: 0.85rem;
-      color: #475569;
+      color: var(--text-muted);
       margin-bottom: 0.3rem;
     }
 
     .pub-venue {
       font-size: 0.9rem;
       font-style: italic;
-      color: #2c6e7e;
+      color: var(--accent-color);
       margin-bottom: 0.3rem;
     }
 
     .pub-keywords {
       font-size: 0.75rem;
       font-style: italic;
-      color: #475569;
+      color: var(--text-muted);
       margin-bottom: 0.5rem;
     }
 
@@ -306,24 +403,24 @@
       font-weight: 500;
       transition: 0.2s;
       text-decoration: none;
-      color: #334155;
-      background: #f8fafc;
+      color: var(--text-secondary);
+      background: var(--about-bg);
     }
 
     .pub-actions button:hover, .pub-actions a:hover {
-      background: #eef2ff;
-      color: #0f2c38;
+      background: var(--accent-bg);
+      color: var(--text-primary);
     }
 
     .pub-about-sentence {
       margin-top: 0.8rem;
-      background: #f1f9fe;
+      background: var(--about-sentence-bg);
       padding: 0.7rem 1rem;
       border-radius: 18px;
       font-size: 0.85rem;
-      color: #155e75;
+      color: var(--accent-color);
       display: none;
-      border-left: 3px solid #2c6e7e;
+      border-left: 3px solid var(--accent-color);
     }
 
     .pub-about-sentence.show {
@@ -343,7 +440,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(to bottom, #2c6e7e, #aac9d4);
+      background: linear-gradient(to bottom, var(--accent-color), var(--accent-bg));
     }
 
     .timeline-item {
@@ -359,25 +456,26 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #2c6e7e;
-      border: 2px solid white;
-      box-shadow: 0 0 0 2px #cbd5e1;
+      background: var(--accent-color);
+      border: 2px solid var(--bg-secondary);
+      box-shadow: 0 0 0 2px var(--border-color);
     }
 
     .timeline-date {
       font-weight: 700;
       font-size: 1rem;
-      color: #1e4a5f;
+      color: var(--accent-color);
       margin-bottom: 0.3rem;
     }
 
     .timeline-title {
       font-weight: 700;
       font-size: 1.1rem;
+      color: var(--text-primary);
     }
 
     .timeline-desc {
-      color: #334155;
+      color: var(--text-secondary);
       font-size: 0.9rem;
     }
 
@@ -389,22 +487,22 @@
     }
 
     .event-card {
-      background: #fefcf7;
+      background: var(--event-card-bg);
       border-radius: 20px;
       padding: 1rem 1.5rem;
-      border-left: 5px solid #2c6e7e;
+      border-left: 5px solid var(--accent-color);
       transition: 0.2s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-sm);
     }
 
     .event-card:hover {
-      background: #fafcff;
+      background: var(--card-hover);
       transform: translateX(4px);
     }
 
     .event-date {
       font-weight: 700;
-      color: #2c6e7e;
+      color: var(--accent-color);
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -414,11 +512,12 @@
       font-weight: 700;
       font-size: 1rem;
       margin: 0.3rem 0;
+      color: var(--text-primary);
     }
 
     .event-desc {
       font-size: 0.9rem;
-      color: #334155;
+      color: var(--text-secondary);
     }
 
     /* Modal for citation */
@@ -427,34 +526,36 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: var(--modal-overlay);
       backdrop-filter: blur(4px);
       align-items: center;
       justify-content: center;
       z-index: 1000;
     }
     .modal-content {
-      background: white;
+      background: var(--bg-secondary);
       max-width: 500px;
       width: 90%;
       padding: 1.8rem;
       border-radius: 32px;
       box-shadow: 0 30px 40px rgba(0,0,0,0.2);
       position: relative;
+      color: var(--text-primary);
     }
     .modal-content h3 {
       margin-bottom: 1rem;
     }
     .modal-content pre {
-      background: #f1f5f9;
+      background: var(--about-bg);
       padding: 1rem;
       border-radius: 20px;
       overflow-x: auto;
       font-size: 0.8rem;
+      color: var(--text-secondary);
     }
     .close-modal {
       margin-top: 1rem;
-      background: #2c6e7e;
+      background: var(--accent-color);
       color: white;
       border: none;
       padding: 0.5rem 1.2rem;
@@ -473,7 +574,7 @@
         width: 100%;
         text-align: center;
         border-right: none;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid var(--border-color);
         padding: 1.5rem;
       }
       .nav-menu ul {
@@ -495,14 +596,23 @@
       .timeline {
         padding-left: 1rem;
       }
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+      }
+      .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
     }
 
     footer {
       text-align: center;
       margin-top: 3rem;
       font-size: 0.75rem;
-      color: #94a3b8;
-      border-top: 1px solid #eef2ff;
+      color: var(--footer-text);
+      border-top: 1px solid var(--border-color);
       padding-top: 2rem;
     }
 
@@ -513,11 +623,18 @@
     .loader {
       text-align: center;
       padding: 2rem;
-      color: #2c6e7e;
+      color: var(--accent-color);
     }
   </style>
 </head>
 <body>
+<!-- Theme Toggle Button -->
+<div class="theme-toggle">
+  <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon" id="themeIcon"></i>
+  </button>
+</div>
+
 <div class="container">
   <!-- LEFT SIDEBAR (static) -->
   <aside class="sidebar">
@@ -547,7 +664,7 @@
 
   <!-- MAIN RIGHT CONTENT -->
   <main class="main-content">
-    <!-- ABOUT SECTION (static, but you could also load from JSON if you wish) -->
+    <!-- ABOUT SECTION -->
     <section id="about">
       <div class="section-title">About Me</div>
       <div class="about-text">
@@ -608,6 +725,35 @@
 </div>
 
 <script>
+  // Theme toggle functionality
+  function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+      } else {
+        themeIcon.className = 'fas fa-moon';
+      }
+    }
+  }
+
   // Global variables
   let publicationsData = [];
   let currentFilter = "all";
@@ -617,56 +763,55 @@
     return [...pubs].sort((a, b) => b.year - a.year);
   }
 
-// Helper to map extra_icon to Font Awesome HTML
-function getIconHtml(iconName) {
-  switch (iconName) {
-    case 'award':
-      return '<i class="fas fa-trophy" style="color: #f59e0b;"></i>';
-    // Add more cases as needed (e.g., 'star', 'medal')
-    default:
-      return '';
-  }
-}
-
-// Render publications based on filter
-function renderPublications() {
-  const container = document.getElementById('publications-container');
-  if (!publicationsData.length) {
-    container.innerHTML = '<div class="loader">No publications found.</div>';
-    return;
-  }
-  let filtered = publicationsData;
-  if (currentFilter !== "all") {
-    filtered = publicationsData.filter(pub => pub.type === currentFilter);
-  }
-  filtered = sortPubDesc(filtered);
-
-  if (filtered.length === 0) {
-    container.innerHTML = `<div style="padding: 2rem; text-align:center;">No publications match this filter.</div>`;
-    return;
+  // Helper to map extra_icon to Font Awesome HTML
+  function getIconHtml(iconName) {
+    switch (iconName) {
+      case 'award':
+        return '<i class="fas fa-trophy" style="color: #f59e0b;"></i>';
+      default:
+        return '';
+    }
   }
 
-  container.innerHTML = filtered.map(pub => `
-    <div class="pub-item">
-      <div class="pub-title">
-        ${pub.extra_icon && pub.extra ? `<span class="pub-extra-icon" style="margin-right: 0.5rem;">${getIconHtml(pub.extra_icon)}</span>` : ''}
-        ${escapeHtml(pub.title)}
-        ${pub.extra_icon && pub.extra ? `<span class="pub-extra-text" style="font-style: italic; color: #6c757d;"> (${escapeHtml(pub.extra)})</span>` : ''}
+  // Render publications based on filter
+  function renderPublications() {
+    const container = document.getElementById('publications-container');
+    if (!publicationsData.length) {
+      container.innerHTML = '<div class="loader">No publications found.</div>';
+      return;
+    }
+    let filtered = publicationsData;
+    if (currentFilter !== "all") {
+      filtered = publicationsData.filter(pub => pub.type === currentFilter);
+    }
+    filtered = sortPubDesc(filtered);
+
+    if (filtered.length === 0) {
+      container.innerHTML = `<div style="padding: 2rem; text-align:center;">No publications match this filter.</div>`;
+      return;
+    }
+
+    container.innerHTML = filtered.map(pub => `
+      <div class="pub-item">
+        <div class="pub-title">
+          ${pub.extra_icon && pub.extra ? `<span class="pub-extra-icon" style="margin-right: 0.5rem;">${getIconHtml(pub.extra_icon)}</span>` : ''}
+          ${escapeHtml(pub.title)}
+          ${pub.extra_icon && pub.extra ? `<span class="pub-extra-text" style="font-style: italic; color: #6c757d;"> (${escapeHtml(pub.extra)})</span>` : ''}
+        </div>
+        <div class="pub-authors">${escapeHtml(pub.authors)}</div>
+        <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
+        <div class="pub-keywords">Keywords: ${escapeHtml(pub.keywords)}</div>
+        <div class="pub-actions">
+          <a href="${pub.pdfLink || '#'}" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+          <button class="cite-btn" data-citation="${escapeHtml(pub.citation)}"><i class="fas fa-quote-right"></i> Cite</button>
+          <button class="about-btn"><i class="fas fa-info-circle"></i> About</button>
+        </div>
+        <div class="pub-about-sentence">${escapeHtml(pub.aboutSentence)}</div>
       </div>
-      <div class="pub-authors">${escapeHtml(pub.authors)}</div>
-      <div class="pub-venue">${escapeHtml(pub.venue)} (${pub.year})</div>
-      <div class="pub-keywords">Keywords: ${escapeHtml(pub.keywords)}</div>
-      <div class="pub-actions">
-        <a href="${pub.pdfLink || '#'}" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
-        <button class="cite-btn" data-citation="${escapeHtml(pub.citation)}"><i class="fas fa-quote-right"></i> Cite</button>
-        <button class="about-btn"><i class="fas fa-info-circle"></i> About</button>
-      </div>
-      <div class="pub-about-sentence">${escapeHtml(pub.aboutSentence)}</div>
-    </div>
-  `).join('');
+    `).join('');
 
-  attachPubEvents();
-}
+    attachPubEvents();
+  }
 
   function attachPubEvents() {
     const container = document.getElementById('publications-container');
@@ -773,6 +918,7 @@ function renderPublications() {
       `;
     }).join('');
   }
+
   // Filter functionality
   function setupFilters() {
     const btns = document.querySelectorAll('.filter-btn');
@@ -854,6 +1000,7 @@ function renderPublications() {
 
   // Initialize
   function init() {
+    initThemeToggle();
     initModal();
     setupFilters();
     setupEventFilters();
