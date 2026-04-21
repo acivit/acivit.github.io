@@ -7,7 +7,7 @@
   "year": 2026,
   "type": "conference",
   "pdfLink": "https://arxiv.org/pdf/2602.14674",
-  "citation": "@article{civit2026user,\n  title={From User Preferences to Base Score Extraction Functions in Gradual Argumentation (with Appendix)},\n  author={Civit, Aniol and Rago, Antonio and Andriella, Antonio and Aleny{\\`a}, Guillem and Toni, Francesca},\n  journal={arXiv preprint arXiv:2602.14674},\n  year={2026}\n}",
+  "citation": "@article{civit_aamas26,\n  title={From User Preferences to Base Score Extraction Functions in Gradual Argumentation (with Appendix)},\n  author={Civit, Aniol and Rago, Antonio and Andriella, Antonio and Aleny{\\`a}, Guillem and Toni, Francesca},\n  journal={arXiv preprint arXiv:2602.14674},\n  year={2026}\n}",
   "aboutSentence": "Base Score Extraction Functions to derive base scores from a Bipolar Argumentation Framework considering a user preferences over the arguments."
 },
   {
@@ -18,7 +18,7 @@
   "year": 2025,
   "type": "preprint",
   "pdfLink": "https://arxiv.org/pdf/2511.03576",
-  "citation": "@article{civit2025multi,\n  title={Multi-User Personalisation in Human-Robot Interaction: Resolving Preference Conflicts Using Gradual Argumentation},\n  author={Civit, Aniol and Andriella, Antonio and Sierra, Carles and Aleny{\\`a}, Guillem},\n  journal={arXiv preprint arXiv:2511.03576},\n  year={2025}\n}",
+  "citation": "@article{civit_arxiv25,\n  title={Multi-User Personalisation in Human-Robot Interaction: Resolving Preference Conflicts Using Gradual Argumentation},\n  author={Civit, Aniol and Andriella, Antonio and Sierra, Carles and Aleny{\\`a}, Guillem},\n  journal={arXiv preprint arXiv:2511.03576},\n  year={2025}\n}",
   "aboutSentence": "Using Gradual Argumentation Frameworks to resolve Multi-User preferences conflicts in HRI."
   },
   {
